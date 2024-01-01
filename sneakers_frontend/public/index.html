@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
+    <title>Sneakers</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but sneakers doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/Snow.min.js"></script>
+    <script>
+      new Snow ();
+      window.onload = function () {
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function (e) {
+        //document.onkeydown = function(e) {
+        // "I" key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+        }
+        // "J" key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+        }
+        // "S" key + macOS
+        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            disabledEvent(e);
+        }
+        // "U" key
+        if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+        }
+        // "F12" key
+        if (event.keyCode == 123) {
+            disabledEvent(e);
+        }
+    }, false);
+    function disabledEvent(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        } else if (window.event) {
+            window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+    }
+}
+    </script>
+    <script src="https://js.stripe.com/v3"></script>
+  </body>
+</html>
